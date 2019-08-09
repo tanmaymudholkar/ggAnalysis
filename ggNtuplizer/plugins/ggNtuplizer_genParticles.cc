@@ -355,7 +355,7 @@ void ggNtuplizer::fillGenPart(const edm::Event& e) {
     int status = ip->status();
     //bool stableFinalStateParticle = status == 1 && ip->pt() > 5.0;
     
-    //bool quarks = abs(ip->pdgId())<7;
+    bool quarks = (abs(ip->pdgId()) < 7);
 
     // keep non-FSR photons with pT > 5.0 and all leptons with pT > 3.0;
     bool photonOrLepton =
@@ -378,9 +378,13 @@ void ggNtuplizer::fillGenPart(const edm::Event& e) {
     for (size_t inp = 0; inp < newparticles_.size(); ++inp) {
       if (abs(ip->pdgId()) == newparticles_[inp]) newParticle = true;
     }
-    
-    //if ( heavyParticle || photonOrLepton || quarks || newParticle ) {
-    if ( heavyParticle || photonOrLepton || newParticle ) {
+
+    bool otherwiseInteresting = ((ip->isHardProcess()) ||
+                                 (ip->isPromptFinalState()) ||
+                                 (ip->isPromptDecayed()));
+
+    if ( heavyParticle || photonOrLepton || quarks || newParticle || otherwiseInteresting) {
+    // if ( heavyParticle || photonOrLepton || newParticle ) {
       
       const reco::Candidate *p = (const reco::Candidate*)&(*ip);
       if (!runOnParticleGun_ && !p->mother()) continue;
