@@ -14,14 +14,14 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '94X_dataRun2_v11', '')
 
 #process.Tracer = cms.Service("Tracer")
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(
-        'file:/data4/cmkuo/testfiles/DoubleEG_Run2017E_31Mar2018.root'
-        )
+                                # 'root://cms-xrd-global.cern.ch///store/data/Run2017E/DoubleEG/MINIAOD/31Mar2018-v1/100000/28F18A28-5238-E811-832A-001EC94BA3CA.root'
                             )
+)
 
 #process.load("PhysicsTools.PatAlgos.patSequences_cff")
 
