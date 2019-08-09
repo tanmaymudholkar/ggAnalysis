@@ -34,6 +34,8 @@ vector<float>  phoE2x2Full5x5_;
 vector<float>  phoE5x5Full5x5_;
 vector<float>  phoR9Full5x5_;
 vector<float>  phoPFChIso_;
+vector<float>  phoPFEcalClusIso_;
+vector<float>  phoTrkIso_;
 vector<float>  phoPFPhoIso_;
 vector<float>  phoPFNeuIso_;
 vector<float>  phoPFChWorstIso_;
@@ -110,6 +112,8 @@ void ggNtuplizer::branchesPhotons(TTree* tree) {
   //tree->Branch("phoSeedBCE",              &phoSeedBCE_);
   //tree->Branch("phoSeedBCEta",            &phoSeedBCEta_);
   tree->Branch("phoPFChIso",              &phoPFChIso_);
+  tree->Branch("phoPFEcalClusIso",        &phoPFEcalClusIso_);
+  tree->Branch("phoTrkIso",               &phoTrkIso_);
   tree->Branch("phoPFPhoIso",             &phoPFPhoIso_);
   tree->Branch("phoPFNeuIso",             &phoPFNeuIso_);
   tree->Branch("phoPFChWorstIso",         &phoPFChWorstIso_);
@@ -174,6 +178,8 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
   phoE5x5Full5x5_         .clear();
   phoR9Full5x5_           .clear();
   phoPFChIso_             .clear();
+  phoPFEcalClusIso_       .clear();
+  phoTrkIso_              .clear();
   phoPFPhoIso_            .clear();
   phoPFNeuIso_            .clear();
   phoPFChWorstIso_        .clear();
@@ -249,6 +255,8 @@ void ggNtuplizer::fillPhotons(const edm::Event& e, const edm::EventSetup& es) {
     phoHoverE_        .push_back(iPho->hadTowOverEm());
     phoESEffSigmaRR_  .push_back(lazyTool.eseffsirir(*((*iPho).superCluster())));
     phoPFChIso_       .push_back(iPho->userFloat("phoChargedIsolation"));
+    phoPFEcalClusIso_ .push_back(iPho->ecalPFClusterIso());
+    phoTrkIso_        .push_back(iPho->trkSumPtHollowConeDR03());
     phoPFPhoIso_      .push_back(iPho->userFloat("phoPhotonIsolation"));
     phoPFNeuIso_      .push_back(iPho->userFloat("phoNeutralHadronIsolation"));
     phoPFChWorstIso_  .push_back(iPho->userFloat("phoWorstChargedIsolation"));
