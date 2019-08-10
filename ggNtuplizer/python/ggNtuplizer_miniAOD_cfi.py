@@ -18,6 +18,7 @@ ggNtuplizer = cms.EDAnalyzer("ggNtuplizer",
                              development          = cms.bool(False),
                              addFilterInfoMINIAOD = cms.bool(False),
                              doNoHFMET            = cms.bool(False),
+                             doTrigger            = cms.bool(True),
 
                              year                 = cms.int32(2017), 
 

@@ -27,6 +27,7 @@ ggNtuplizer::ggNtuplizer(const edm::ParameterSet& ps) :
   dumpTaus_                  = ps.getParameter<bool>("dumpTaus");
   dumpPDFSystWeight_         = ps.getParameter<bool>("dumpPDFSystWeight");
   dumpHFElectrons_           = ps.getParameter<bool>("dumpHFElectrons");
+  doTrigger_                 = ps.getParameter<bool>("doTrigger");
   year_                      = ps.getParameter<int>("year");
 
   trgFilterDeltaPtCut_       = ps.getParameter<double>("trgFilterDeltaPtCut");
@@ -37,8 +38,10 @@ ggNtuplizer::ggNtuplizer(const edm::ParameterSet& ps) :
   rhoLabel_                  = consumes<double>                        (ps.getParameter<InputTag>("rhoLabel"));
   rhoCentralLabel_           = consumes<double>                        (ps.getParameter<InputTag>("rhoCentralLabel"));
   trgEventLabel_             = consumes<trigger::TriggerEvent>         (ps.getParameter<InputTag>("triggerEvent"));
-  triggerObjectsLabel_       = consumes<pat::TriggerObjectStandAloneCollection>(ps.getParameter<edm::InputTag>("triggerEvent"));
-  trgResultsLabel_           = consumes<edm::TriggerResults>           (ps.getParameter<InputTag>("triggerResults"));
+  if (doTrigger_) {
+    triggerObjectsLabel_     = consumes<pat::TriggerObjectStandAloneCollection>(ps.getParameter<edm::InputTag>("triggerEvent"));
+    trgResultsLabel_         = consumes<edm::TriggerResults>           (ps.getParameter<InputTag>("triggerResults"));
+  }
   patTrgResultsLabel_        = consumes<edm::TriggerResults>           (ps.getParameter<InputTag>("patTriggerResults"));
   trgResultsProcess_         =                                          ps.getParameter<InputTag>("triggerResults").process();
   generatorLabel_            = consumes<GenEventInfoProduct>           (ps.getParameter<InputTag>("generatorLabel"));
