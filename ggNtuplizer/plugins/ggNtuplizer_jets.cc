@@ -261,7 +261,9 @@ void ggNtuplizer::fillJets(const edm::Event& e, const edm::EventSetup& es) {
       jetJECUnc_.push_back(-1.);
     }
 
-    jetFiredTrgs_.push_back(matchJetTriggerFilters(iJet->pt(), iJet->eta(), iJet->phi()));    
+    if (doTrigger_) {
+      jetFiredTrgs_.push_back(matchJetTriggerFilters(iJet->pt(), iJet->eta(), iJet->phi()));
+    }
 
     //Searching for leading track and lepton
     float leadTrkPt  = -99;

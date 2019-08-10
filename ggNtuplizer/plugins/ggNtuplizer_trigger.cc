@@ -309,6 +309,7 @@ void ggNtuplizer::initTriggerFilters(const edm::Event &e) {
     
   }
  
+  if (doTrigger_) {
   edm::Handle<pat::TriggerObjectStandAloneCollection> triggerHandleMiniAOD;
   e.getByToken(triggerObjectsLabel_, triggerHandleMiniAOD);
 
@@ -405,7 +406,7 @@ void ggNtuplizer::initTriggerFilters(const edm::Event &e) {
       }
     }
   }
-
+  } // ends doTrigger
 }
 
 ULong64_t ggNtuplizer::matchSingleElectronTriggerFilters(double pt, double eta, double phi) {

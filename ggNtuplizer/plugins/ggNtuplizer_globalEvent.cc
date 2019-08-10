@@ -135,6 +135,7 @@ void ggNtuplizer::fillGlobalEvent(const edm::Event& e, const edm::EventSetup& es
   HLTPhoIsPrescaled_    = 0;
   HLTJetIsPrescaled_    = 0;
 
+  if (doTrigger_) {
   edm::Handle<edm::TriggerResults> trgResultsHandle;
   e.getByToken(trgResultsLabel_, trgResultsHandle);
 
@@ -456,5 +457,5 @@ void ggNtuplizer::fillGlobalEvent(const edm::Event& e, const edm::EventSetup& es
     }
 
   }
-
+  } // end doTrigger
 }
