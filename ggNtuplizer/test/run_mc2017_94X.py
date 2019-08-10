@@ -92,6 +92,7 @@ process.ggNtuplizer.dumpTaus=cms.bool(False)
 process.ggNtuplizer.triggerEvent=cms.InputTag("slimmedPatTrigger", "", "PAT")
 process.ggNtuplizer.ak4JetSrc=cms.InputTag("slimmedJetsJEC")
 process.ggNtuplizer.pfMETLabel=cms.InputTag("slimmedMETsModifiedMET")
+process.ggNtuplizer.doTrigger=cms.bool(False)
 
 process.cleanedMu = cms.EDProducer("PATMuonCleanerBySegments",
                                    src = cms.InputTag("slimmedMuons"),
