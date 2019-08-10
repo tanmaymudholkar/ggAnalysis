@@ -4,9 +4,9 @@ BASEHOSTNAME=$(echo $HOSTNAME | sed "s|\([^\.]*\)\.cern\.ch|\1|" | sed "s|\([^\.
 NTUPLIZER_SRC=""
 export X509_USER_PROXY=${HOME}/private/x509up_u$(id -u)
 if [[ "${BASEHOSTNAME}" =~ ^lxplus[0-9]{3,4}$ ]]; then
-    NTUPLIZER_SRC="~/public/research/stealth/from_michael/StealthProduction/CMSSW_9_4_13/src"
+    NTUPLIZER_SRC="${HOME}/public/research/stealth/from_michael/StealthProduction/CMSSW_9_4_13/src"
 elif [[ "${BASEHOSTNAME}" =~ ^cmslpc[0-9]{2}$ ]]; then
-    NTUPLIZER_SRC="~/private/stealth/cmssw/CMSSW_9_4_13/src"
+    NTUPLIZER_SRC="${HOME}/private/stealth/cmssw/CMSSW_9_4_13/src"
 fi
 cd ${NTUPLIZER_SRC} && eval `scramv1 runtime -sh`
 cd ${NTUPLIZER_SRC}/ggAnalysis/ggNtuplizer/test
