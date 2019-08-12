@@ -109,6 +109,7 @@ class ggNtuplizer : public edm::EDAnalyzer {
   bool dumpPDFSystWeight_;
   bool dumpHFElectrons_;
   bool doTrigger_;
+  bool doPrefiring_;
   int  year_;
 
   vector<int> newparticles_;

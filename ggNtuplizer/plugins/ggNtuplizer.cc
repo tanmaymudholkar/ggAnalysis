@@ -28,6 +28,7 @@ ggNtuplizer::ggNtuplizer(const edm::ParameterSet& ps) :
   dumpPDFSystWeight_         = ps.getParameter<bool>("dumpPDFSystWeight");
   dumpHFElectrons_           = ps.getParameter<bool>("dumpHFElectrons");
   doTrigger_                 = ps.getParameter<bool>("doTrigger");
+  doPrefiring_               = ps.getParameter<bool>("doPrefiring");
   year_                      = ps.getParameter<int>("year");
 
   trgFilterDeltaPtCut_       = ps.getParameter<double>("trgFilterDeltaPtCut");
@@ -76,9 +77,11 @@ ggNtuplizer::ggNtuplizer(const edm::ParameterSet& ps) :
 
   //pfLooseId_                 = ps.getParameter<ParameterSet>("pfLooseId");
 
-  prefweight_token_          = consumes<double>(edm::InputTag("prefiringweight:nonPrefiringProb"));
-  prefweightup_token_        = consumes<double>(edm::InputTag("prefiringweight:nonPrefiringProbUp"));
-  prefweightdown_token_      = consumes<double>(edm::InputTag("prefiringweight:nonPrefiringProbDown"));
+  if (doPrefiring_) {
+    prefweight_token_          = consumes<double>(edm::InputTag("prefiringweight:nonPrefiringProb"));
+    prefweightup_token_        = consumes<double>(edm::InputTag("prefiringweight:nonPrefiringProbUp"));
+    prefweightdown_token_      = consumes<double>(edm::InputTag("prefiringweight:nonPrefiringProbDown"));
+  }
 
   cicPhotonId_ = new CiCPhotonID(ps);
 

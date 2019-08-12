@@ -112,7 +112,7 @@ void ggNtuplizer::fillGlobalEvent(const edm::Event& e, const edm::EventSetup& es
   L1ECALPrefireUp_   = 1;
   L1ECALPrefireDown_ = 1;
   
-  if (runL1ECALPrefire_) {
+  if (runL1ECALPrefire_ && doPrefiring_) {
     edm::Handle<double> theprefweight;
     e.getByToken(prefweight_token_, theprefweight);
     L1ECALPrefire_    = (*theprefweight);

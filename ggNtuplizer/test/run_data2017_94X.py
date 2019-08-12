@@ -85,6 +85,7 @@ process.ggNtuplizer.ak4JetSrc=cms.InputTag("slimmedJetsJEC")
 process.ggNtuplizer.pfMETLabel=cms.InputTag("slimmedMETsModifiedMET")
 process.ggNtuplizer.addFilterInfoMINIAOD=cms.bool(True)
 process.load("ggAnalysis.ggNtuplizer.ggMETFilters_cff")
+process.ggNtuplizer.doPrefiring=cms.bool(False)
 
 process.cleanedMu = cms.EDProducer("PATMuonCleanerBySegments",
                                    src = cms.InputTag("slimmedMuons"),

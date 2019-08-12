@@ -1,11 +1,6 @@
 from CRABClient.UserUtilities import config
 config = config()
 
-# General.requestName, General.workArea, Data.inputDataset, and Data.outLFNDirBase are meant to be passed as arguments to "crab submit"
-
-# To submit:
-# for era in B C D E F; do crab submit --dryrun -c data_crabConfig.py General.requestName=re_ntuplizer_949cand2_data_DoubleEG_2017${era} General.workArea=crab_workArea_data_2017${era}_withMETMitigation_newTrigger Data.inputDataset=/DoubleEG/Run2017${era}-31Mar2018-v1/MINIAOD Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with949Cand2/data_2017${era}_withMETMitigation_newTrigger/ ; done
-
 config.General.requestName = ""
 config.General.workArea = ""
 config.General.transferLogs = False
