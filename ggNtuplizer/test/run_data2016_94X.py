@@ -14,14 +14,14 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '94X_dataRun2_v10')
 
 #process.Tracer = cms.Service("Tracer")
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(
-        'file:/data4/cmkuo/testfiles/DoubleEG_Run2016F_17Jul2018.root'
-        )
+                                # 'file:/data4/cmkuo/testfiles/DoubleEG_Run2016F_17Jul2018.root'
                             )
+)
 
 #process.load("PhysicsTools.PatAlgos.patSequences_cff")
 
@@ -82,6 +82,7 @@ process.ggNtuplizer.ak4JetSrc=cms.InputTag("slimmedJetsJEC")
 process.ggNtuplizer.pfMETLabel=cms.InputTag("slimmedMETsModifiedMET")
 process.ggNtuplizer.patTriggerResults=cms.InputTag("TriggerResults", "", "DQM")
 process.ggNtuplizer.addFilterInfoMINIAOD=cms.bool(True)
+process.ggNtuplizer.doPrefiring=cms.bool(False)
 
 process.cleanedMu = cms.EDProducer("PATMuonCleanerBySegments",
                                    src = cms.InputTag("slimmedMuons"),
