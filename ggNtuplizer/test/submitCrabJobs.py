@@ -106,7 +106,6 @@ for year in yearsToRun:
             storageSite = "T2_CH_CERN"
         else:
             storageSite = "T3_US_FNALLPC"
-        
-        lfnDirBase = "{sER}/stealth2018Ntuples_with9413/data_{did}_{v}".format(did=datasetIdentifier, sER=(stealthEOSRoot.replace("user/lpcsusystealth","group/lpcsusystealth")), v=inputArguments.version)
-        commandToSubmit += "-c data_crabConfig.py General.requestName=ntuplizer_9413_data_{did} General.workArea=crab_workArea_ntuplizer_9413_data_{did} JobType.psetName={p} Data.inputDataset={d} Data.unitsPerJob=20 Data.lumiMask={lM} Data.outLFNDirBase={lDB} Site.storageSite={sS}".format(did=datasetIdentifier, d=dataset, p=psetFiles[year], lM=lumiMasks[year], sS=storageSite, lDB=lfnDirBase)
+        lfnDirBase = "{sER}/stealth2018Ntuples_with10210/data_{did}_{v}".format(did=datasetIdentifier, sER=(stealthEOSRoot.replace("user/lpcsusystealth","group/lpcsusystealth")), v=inputArguments.version)
+        commandToSubmit += "-c data_crabConfig.py General.requestName=ntuplizer_10210_data_{did} General.workArea=crab_workArea_ntuplizer_10210_data_{did} JobType.psetName={p} Data.inputDataset={d} Data.unitsPerJob=20 Data.lumiMask={lM} Data.outLFNDirBase={lDB} Site.storageSite={sS}".format(did=datasetIdentifier, d=dataset, p=psetFiles[year], lM=lumiMasks[year], sS=storageSite, lDB=lfnDirBase)
         execute_in_crab_env(commandToSubmit)
