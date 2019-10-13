@@ -63,17 +63,25 @@ datasets = {
         "/DoubleEG/Run2017D-31Mar2018-v1/MINIAOD",
         "/DoubleEG/Run2017E-31Mar2018-v1/MINIAOD",
         "/DoubleEG/Run2017F-31Mar2018-v1/MINIAOD"
+    ],
+    2018: [
+        "/EGamma/Run2018A-17Sep2018-v2/MINIAOD",
+        "/EGamma/Run2018B-17Sep2018-v1/MINIAOD",
+        "/EGamma/Run2018C-17Sep2018-v1/MINIAOD",
+        "/EGamma/Run2018D-22Jan2019-v2/MINIAOD"
     ]
 }
 
 lumiMasks = {
     2016: "https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions16/13TeV/ReReco/Final/Cert_271036-284044_13TeV_ReReco_07Aug2017_Collisions16_JSON.txt",
-    2017: "https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions17/13TeV/ReReco/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt"
+    2017: "https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions17/13TeV/ReReco/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt",
+    2018: "https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions18/13TeV/ReReco/Cert_314472-325175_13TeV_17SeptEarlyReReco2018ABC_PromptEraD_Collisions18_JSON.txt"
 }
 
 psetFiles = {
     2016: "run_data2016_94X.py",
-    2017: "run_data2017_94X.py"
+    2017: "run_data2017_94X.py",
+    2018: "run_data2018_102X.py",
 }
 
 yearsToRun = []
@@ -81,9 +89,12 @@ if (inputArguments.year == "2016"):
     yearsToRun.append(2016)
 elif (inputArguments.year == "2017"):
     yearsToRun.append(2017)
+elif (inputArguments.year == "2018"):
+    yearsToRun.append(2018)
 elif (inputArguments.year == "all"):
     yearsToRun.append(2016)
     yearsToRun.append(2017)
+    yearsToRun.append(2018)
 else:
     sys.exit("ERROR: invalid value for argument \"year\": {v}".format(v=inputArguments.year))
 
@@ -107,5 +118,5 @@ for year in yearsToRun:
         else:
             storageSite = "T3_US_FNALLPC"
         lfnDirBase = "{sER}/stealth2018Ntuples_with10210/data_{did}_{v}".format(did=datasetIdentifier, sER=(stealthEOSRoot.replace("user/lpcsusystealth","group/lpcsusystealth")), v=inputArguments.version)
-        commandToSubmit += "-c data_crabConfig.py General.requestName=ntuplizer_10210_data_{did} General.workArea=crab_workArea_ntuplizer_10210_data_{did} JobType.psetName={p} Data.inputDataset={d} Data.unitsPerJob=20 Data.lumiMask={lM} Data.outLFNDirBase={lDB} Site.storageSite={sS}".format(did=datasetIdentifier, d=dataset, p=psetFiles[year], lM=lumiMasks[year], sS=storageSite, lDB=lfnDirBase)
+        commandToSubmit += "-c data_crabConfig.py General.requestName=ntuplizer_10210_data_{did} General.workArea=crab_workArea_ntuplizer_10210_data_{did} JobType.psetName={p} Data.inputDataset={d} Data.unitsPerJob=25 Data.lumiMask={lM} Data.outLFNDirBase={lDB} Site.storageSite={sS}".format(did=datasetIdentifier, d=dataset, p=psetFiles[year], lM=lumiMasks[year], sS=storageSite, lDB=lfnDirBase)
         execute_in_crab_env(commandToSubmit)

@@ -13,7 +13,7 @@ from Configuration.AlCa.GlobalTag_condDBv2 import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, '94X_mcRun2_asymptotic_v3')
 
 #process.Tracer = cms.Service("Tracer")
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
 process.source = cms.Source("PoolSource",
@@ -90,6 +90,7 @@ process.ggNtuplizer.patTriggerResults=cms.InputTag("TriggerResults", "", "PAT")
 process.ggNtuplizer.triggerEvent=cms.InputTag("slimmedPatTrigger", "", "")
 process.ggNtuplizer.ak4JetSrc=cms.InputTag("slimmedJetsJEC")
 process.ggNtuplizer.pfMETLabel=cms.InputTag("slimmedMETsModifiedMET")
+process.ggNtuplizer.doTrigger=cms.bool(False)
 
 process.cleanedMu = cms.EDProducer("PATMuonCleanerBySegments",
                                    src = cms.InputTag("slimmedMuons"),

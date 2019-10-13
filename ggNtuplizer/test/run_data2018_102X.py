@@ -15,15 +15,15 @@ process.GlobalTag = GlobalTag(process.GlobalTag, '102X_dataRun2_v11', '') #2018A
 
 #process.Tracer = cms.Service("Tracer")
 
-process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(1000) )
+process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(
-        'file:/data4/cmkuo/testfiles/DoubleMuon_Run2018C_17Sep2018.root'
-        #'file:/data4/cmkuo/testfiles/DoubleMuon_Run2018D_PR.root'
-        )
+                                # 'file:/data4/cmkuo/testfiles/DoubleMuon_Run2018C_17Sep2018.root'
+                                #'file:/data4/cmkuo/testfiles/DoubleMuon_Run2018D_PR.root'
                             )
+)
 
 #process.load("PhysicsTools.PatAlgos.patSequences_cff")
 
@@ -75,7 +75,7 @@ runMetCorAndUncFromMiniAOD (
 )
 
 process.load("ggAnalysis.ggNtuplizer.ggNtuplizer_miniAOD_cfi")
-process.ggNtuplizer.year=cms.int32(2017)
+process.ggNtuplizer.year=cms.int32(2017) # Parameters similar between 2017 and 2018 running
 process.ggNtuplizer.doGenParticles=cms.bool(False)
 process.ggNtuplizer.dumpPFPhotons=cms.bool(True)
 process.ggNtuplizer.dumpHFElectrons=cms.bool(False)
@@ -87,6 +87,7 @@ process.ggNtuplizer.ak4JetSrc=cms.InputTag("slimmedJetsJEC")
 process.ggNtuplizer.pfMETLabel=cms.InputTag("slimmedMETsModifiedMET")
 process.ggNtuplizer.addFilterInfoMINIAOD=cms.bool(True)
 process.load("ggAnalysis.ggNtuplizer.ggMETFilters_cff")
+process.ggNtuplizer.doPrefiring=cms.bool(False)
 
 process.cleanedMu = cms.EDProducer("PATMuonCleanerBySegments",
                                    src = cms.InputTag("slimmedMuons"),
