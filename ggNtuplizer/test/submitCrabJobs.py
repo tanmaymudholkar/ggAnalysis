@@ -81,7 +81,13 @@ lumiMasks = {
 psetFiles = {
     2016: "run_data2016_94X.py",
     2017: "run_data2017_94X.py",
-    2018: "run_data2018_102X.py",
+    2018: "run_data2018_102X.py"
+}
+
+unitsPerJobSettings = {
+    2016: 30,
+    2017: 20,
+    2018: 15
 }
 
 yearsToRun = []
@@ -111,12 +117,13 @@ for year in yearsToRun:
         datasetIdentifier = extract_dataset_identifier(dataset)
         commandToSubmit = ""
         commandToSubmit += "crab submit "
-        if not(inputArguments.isProductionRun): commandToSubmit += "--dryrun "
+        if (inputArguments.isProductionRun): commandToSubmit += "--wait "
+        else: commandToSubmit += "--dryrun "
         storageSite = ""
         if (habitat == "lxplus"):
             storageSite = "T2_CH_CERN"
         else:
             storageSite = "T3_US_FNALLPC"
         lfnDirBase = "{sER}/stealth2018Ntuples_with10210/data_{did}_{v}".format(did=datasetIdentifier, sER=(stealthEOSRoot.replace("user/lpcsusystealth","group/lpcsusystealth")), v=inputArguments.version)
-        commandToSubmit += "-c data_crabConfig.py General.requestName=ntuplizer_10210_data_{did} General.workArea=crab_workArea_ntuplizer_10210_data_{did} JobType.psetName={p} Data.inputDataset={d} Data.unitsPerJob=25 Data.lumiMask={lM} Data.outLFNDirBase={lDB} Site.storageSite={sS}".format(did=datasetIdentifier, d=dataset, p=psetFiles[year], lM=lumiMasks[year], sS=storageSite, lDB=lfnDirBase)
+        commandToSubmit += "-c data_crabConfig.py General.requestName=ntuplizer_10210_data_{did} General.workArea=crab_workArea_ntuplizer_10210_data_{did} JobType.psetName={p} Data.inputDataset={d} Data.unitsPerJob={uPJ} Data.lumiMask={lM} Data.outLFNDirBase={lDB} Site.storageSite={sS}".format(did=datasetIdentifier, d=dataset, p=psetFiles[year], lM=lumiMasks[year], sS=storageSite, lDB=lfnDirBase, uPJ=unitsPerJobSettings[year])
         execute_in_crab_env(commandToSubmit)
