@@ -135,7 +135,7 @@ def extract_dataset_identifier(dataset):
     splitDataset = dataset.split("/")
     if not(len(splitDataset) == 4):
         sys.exit("dataset: {d} in unexpected format; splitDataset = {s}".format(d=dataset, s=splitDataset))
-    return (splitDataset[2])
+    return (splitDataset[1] + "_" + splitDataset[2])
 
 # execute_in_crab_env("which crab && type crab")
 for year in yearsToRun:
