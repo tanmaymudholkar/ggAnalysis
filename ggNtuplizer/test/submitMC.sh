@@ -1,14 +1,13 @@
 #!/bin/bash
 
 BASEHOSTNAME=$(echo $HOSTNAME | sed "s|\([^\.]*\)\.cern\.ch|\1|" | sed "s|\([^\.]*\)\.fnal\.gov|\1|")
-${STEALTH_CMSSW_BASE}
 cd ${STEALTH_CMSSW_BASE}/src && eval `scramv1 runtime -sh`
 cd ${STEALTH_CMSSW_BASE}/src/ggAnalysis/ggNtuplizer/test
 source /cvmfs/cms.cern.ch/crab3/crab.sh
 
 DRYRUNFLAG="--dryrun "
 if [ "${1}" = "prod" ]; then
-    DRYRUNFLAG=""
+    DRYRUNFLAG="--wait "
 fi
 
 set -x
@@ -25,5 +24,29 @@ set -x
 # crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_EMEnrichedQCD_Pt-30toInf General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_EMEnrichedQCD_Pt-30toInf Data.inputDataset=/QCD_Pt-30toInf_DoubleEMEnriched_MGG-40to80_TuneCP5_13TeV_Pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_EMEnrichedQCD_Pt-30toInf_producedAug19/
 
 # crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_EMEnrichedQCD_Pt-40toInf General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_EMEnrichedQCD_Pt-40toInf Data.inputDataset=/QCD_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_EMEnrichedQCD_Pt-40toInf_producedAug19/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_GJet_Pt20To40_MGG80ToInf General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_GJet_Pt20To40_MGG80ToInf Data.inputDataset=/GJet_Pt-20to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_DoubleEMEnriched_GJet_Pt20To40_MGG80ToInf/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_GJet_Pt40ToInf_MGG80ToInf General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_GJet_Pt40ToInf_MGG80ToInf Data.inputDataset=/GJet_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_DoubleEMEnriched_GJet_Pt40ToInf_MGG80ToInf/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_QCD_Pt40ToInf_MGG80ToInf General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_QCD_Pt40ToInf_MGG80ToInf Data.inputDataset=/QCD_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_DoubleEMEnriched_QCD_Pt40ToInf_MGG80ToInf/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_QCD_Pt30To40_MGG80ToInf General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_QCD_Pt30To40_MGG80ToInf Data.inputDataset=/QCD_Pt-30to40_DoubleEMEnriched_MGG-80toInf_TuneCP5_13TeV_Pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_DoubleEMEnriched_QCD_Pt30To40_MGG80ToInf/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_DiPhotonJets_MGG80ToInf General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_DiPhotonJets_MGG80ToInf Data.inputDataset=/DiPhotonJets_MGG-80toInf_13TeV_amcatnloFXFX_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_DoubleEMEnriched_DiPhotonJets_MGG80ToInf/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_GluGluHToGG General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_DoubleEMEnriched_GluGluHToGG Data.inputDataset=/GluGluHToGG_M125_13TeV_amcatnloFXFX_pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v1/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_DoubleEMEnriched_GluGluHToGG/ Site.ignoreGlobalBlacklist=True
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_HT2000toInf General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_HT2000toInf Data.inputDataset=/QCD_HT2000toInf_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_HT2000toInf/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_HT1500to2000 General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_HT1500to2000 Data.inputDataset=/QCD_HT1500to2000_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_HT1500to2000/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_HT1000to1500 General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_HT1000to1500 Data.inputDataset=/QCD_HT1000to1500_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_new_pmx_94X_mc2017_realistic_v14-v1/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_HT1000to1500/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_HT700to1000 General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_HT700to1000 Data.inputDataset=/QCD_HT700to1000_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_new_pmx_94X_mc2017_realistic_v14-v2/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_HT700to1000/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_HT500to700 General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_HT500to700 Data.inputDataset=/QCD_HT500to700_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_HT500to700/
+
+# crab submit ${DRYRUNFLAG}-c mc_crabConfig.py General.requestName=ntuplizer_10210_mc_Fall17_QCD_HT300to500 General.workArea=crab_workArea_ntuplizer_10210_mc_Fall17_QCD_HT300to500 Data.inputDataset=/QCD_HT300to500_TuneCP5_13TeV-madgraph-pythia8/RunIIFall17MiniAODv2-PU2017_12Apr2018_new_pmx_94X_mc2017_realistic_v14-v1/MINIAODSIM Data.outLFNDirBase=/store/group/lpcsusystealth/stealth2018Ntuples_with10210/MC_Fall17_QCD_HT300to500/
 
 set +x
