@@ -6,12 +6,11 @@ config.General.workArea = ""
 config.General.transferLogs = False
 
 config.JobType.pluginName = "Analysis"
-config.JobType.psetName = ""
+config.JobType.psetName = "run_mc2017_94X.py"
 config.JobType.allowUndistributedCMSSW = True
 
 config.Data.inputDataset = ""
-config.Data.splitting = "LumiBased"
-config.Data.unitsPerJob = 15
-config.Data.lumiMask = ""
+config.Data.splitting = "FileBased"
+config.Data.unitsPerJob = 1
 config.Data.outLFNDirBase = ""
-config.Site.storageSite = ""
+config.Site.storageSite = "T3_US_FNALLPC"

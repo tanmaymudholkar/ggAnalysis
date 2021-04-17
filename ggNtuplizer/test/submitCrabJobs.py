@@ -48,13 +48,13 @@ def execute_in_crab_env(commandToRun, printDebug=False):
 
 datasets = {
     2016: [
-        "/DoubleEG/Run2016B-17Jul2018_ver2-v1/MINIAOD",
-        "/DoubleEG/Run2016C-17Jul2018-v1/MINIAOD",
-        "/DoubleEG/Run2016D-17Jul2018-v1/MINIAOD",
-        "/DoubleEG/Run2016E-17Jul2018-v1/MINIAOD",
-        "/DoubleEG/Run2016F-17Jul2018-v1/MINIAOD",
-        "/DoubleEG/Run2016G-17Jul2018-v1/MINIAOD",
-        "/DoubleEG/Run2016H-17Jul2018-v1/MINIAOD",
+        # "/DoubleEG/Run2016B-17Jul2018_ver2-v1/MINIAOD",
+        # "/DoubleEG/Run2016C-17Jul2018-v1/MINIAOD",
+        # "/DoubleEG/Run2016D-17Jul2018-v1/MINIAOD",
+        # "/DoubleEG/Run2016E-17Jul2018-v1/MINIAOD",
+        # "/DoubleEG/Run2016F-17Jul2018-v1/MINIAOD",
+        # "/DoubleEG/Run2016G-17Jul2018-v1/MINIAOD",
+        # "/DoubleEG/Run2016H-17Jul2018-v1/MINIAOD",
         "/SinglePhoton/Run2016B-17Jul2018_ver2-v1/MINIAOD",
         "/SinglePhoton/Run2016C-17Jul2018-v1/MINIAOD",
         "/SinglePhoton/Run2016D-17Jul2018-v1/MINIAOD",
@@ -62,40 +62,40 @@ datasets = {
         "/SinglePhoton/Run2016F-17Jul2018-v1/MINIAOD",
         "/SinglePhoton/Run2016G-17Jul2018-v1/MINIAOD",
         "/SinglePhoton/Run2016H-17Jul2018-v1/MINIAOD",
-        "/JetHT/Run2016B-17Jul2018_ver2-v2/MINIAOD",
-        "/JetHT/Run2016C-17Jul2018-v1/MINIAOD",
-        "/JetHT/Run2016D-17Jul2018-v1/MINIAOD",
-        "/JetHT/Run2016E-17Jul2018-v1/MINIAOD",
-        "/JetHT/Run2016F-17Jul2018-v1/MINIAOD",
-        "/JetHT/Run2016G-17Jul2018-v1/MINIAOD",
-        "/JetHT/Run2016H-17Jul2018-v1/MINIAOD"
+        # "/JetHT/Run2016B-17Jul2018_ver2-v2/MINIAOD",
+        # "/JetHT/Run2016C-17Jul2018-v1/MINIAOD",
+        # "/JetHT/Run2016D-17Jul2018-v1/MINIAOD",
+        # "/JetHT/Run2016E-17Jul2018-v1/MINIAOD",
+        # "/JetHT/Run2016F-17Jul2018-v1/MINIAOD",
+        # "/JetHT/Run2016G-17Jul2018-v1/MINIAOD",
+        # "/JetHT/Run2016H-17Jul2018-v1/MINIAOD"
     ],
     2017: [
-        "/DoubleEG/Run2017B-31Mar2018-v1/MINIAOD",
-        "/DoubleEG/Run2017C-31Mar2018-v1/MINIAOD",
-        "/DoubleEG/Run2017D-31Mar2018-v1/MINIAOD",
-        "/DoubleEG/Run2017E-31Mar2018-v1/MINIAOD",
-        "/DoubleEG/Run2017F-31Mar2018-v1/MINIAOD",
+        # "/DoubleEG/Run2017B-31Mar2018-v1/MINIAOD",
+        # "/DoubleEG/Run2017C-31Mar2018-v1/MINIAOD",
+        # "/DoubleEG/Run2017D-31Mar2018-v1/MINIAOD",
+        # "/DoubleEG/Run2017E-31Mar2018-v1/MINIAOD",
+        # "/DoubleEG/Run2017F-31Mar2018-v1/MINIAOD",
         "/SinglePhoton/Run2017B-31Mar2018-v1/MINIAOD",
         "/SinglePhoton/Run2017C-31Mar2018-v1/MINIAOD",
         "/SinglePhoton/Run2017D-31Mar2018-v1/MINIAOD",
         "/SinglePhoton/Run2017E-31Mar2018-v1/MINIAOD",
         "/SinglePhoton/Run2017F-31Mar2018-v1/MINIAOD",
-        "/JetHT/Run2017B-31Mar2018-v1/MINIAOD",
-        "/JetHT/Run2017C-31Mar2018-v1/MINIAOD",
-        "/JetHT/Run2017D-31Mar2018-v1/MINIAOD",
-        "/JetHT/Run2017E-31Mar2018-v1/MINIAOD",
-        "/JetHT/Run2017F-31Mar2018-v1/MINIAOD"
+        # "/JetHT/Run2017B-31Mar2018-v1/MINIAOD",
+        # "/JetHT/Run2017C-31Mar2018-v1/MINIAOD",
+        # "/JetHT/Run2017D-31Mar2018-v1/MINIAOD",
+        # "/JetHT/Run2017E-31Mar2018-v1/MINIAOD",
+        # "/JetHT/Run2017F-31Mar2018-v1/MINIAOD"
     ],
     2018: [
         "/EGamma/Run2018A-17Sep2018-v2/MINIAOD",
         "/EGamma/Run2018B-17Sep2018-v1/MINIAOD",
         "/EGamma/Run2018C-17Sep2018-v1/MINIAOD",
         "/EGamma/Run2018D-22Jan2019-v2/MINIAOD",
-        "/JetHT/Run2018A-17Sep2018-v1/MINIAOD",
-        "/JetHT/Run2018B-17Sep2018-v1/MINIAOD",
-        "/JetHT/Run2018C-17Sep2018-v1/MINIAOD",
-        "/JetHT/Run2018D-PromptReco-v2/MINIAOD"
+        # "/JetHT/Run2018A-17Sep2018-v1/MINIAOD",
+        # "/JetHT/Run2018B-17Sep2018-v1/MINIAOD",
+        # "/JetHT/Run2018C-17Sep2018-v1/MINIAOD",
+        # "/JetHT/Run2018D-PromptReco-v2/MINIAOD"
     ]
 }
 
